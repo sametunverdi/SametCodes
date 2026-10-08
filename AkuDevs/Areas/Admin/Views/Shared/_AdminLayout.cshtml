@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SametCodes Admin</title>
+    
+    <link rel="icon" type="image/png" href="~/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Ana sitenin Tailwind CSS dosyası -->
+    <link rel="stylesheet" href="~/css/tailwind.css" asp-append-version="true" />
+</head>
+<body class="bg-[#0a0a0a] text-gray-300 font-sans antialiased selection:bg-red-500/30 selection:text-white">
+
+    <!-- Mobil Topbar -->
+    <div class="md:hidden flex items-center justify-between bg-[#141414] border-b border-white/5 px-4 py-4 fixed top-0 w-full z-50">
+        <a href="/Admin" class="flex items-center gap-2">
+            <img src="~/images/favicon.png" alt="Logo" class="w-8 h-8 object-contain">
+            <span class="text-white font-bold tracking-tight">Samet<span class="text-gray-500">Admin</span></span>
+        </a>
+        <button id="mobileMenuBtn" class="text-gray-400 hover:text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="flex h-screen overflow-hidden pt-[73px] md:pt-0">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="bg-[#141414] border-r border-white/5 w-64 flex-shrink-0 fixed md:static h-full z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="hidden md:flex items-center gap-3 px-6 py-8 border-b border-white/5">
+                <img src="~/images/favicon.png" alt="Logo" class="w-10 h-10 object-contain">
+                <div>
+                    <h1 class="text-white font-bold text-lg tracking-tight leading-none">SametCodes</h1>
+                    <span class="text-xs text-red-500 font-semibold tracking-widest uppercase">Admin Panel</span>
+                </div>
+            </div>
+
+            <nav class="p-4 space-y-2 overflow-y-auto h-[calc(100vh-100px)]">
+                @{
+                    var currentPath = Context.Request.Path.Value?.ToLower() ?? "";
+                    
+                    string activeClass = "bg-red-500/10 text-red-500 border border-red-500/20 font-medium";
+                    string inactiveClass = "text-gray-400 hover:text-white hover:bg-white/5 border border-transparent";
+                    
+                    bool isDash = currentPath == "/admin" || currentPath == "/admin/" || currentPath == "/admin/home" || currentPath == "/admin/home/index";
+                    bool isHero = currentPath.StartsWith("/admin/hero");
+                    bool isSocial = currentPath.StartsWith("/admin/socialmedia");
+                }
+
+                <a href="/Admin" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all @(isDash ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    Dashboard
+                </a>
+                
+                <div class="pt-4 pb-2">
+                    <p class="px-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Ana Sayfa Ayarları</p>
+                </div>
+                
+                <a href="/Admin/Hero" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(isHero ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                    Hero (Giriş) Kısmı
+                </a>
+
+                <a href="/Admin/SocialMedia" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(isSocial ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                    </svg>
+                    Sosyal Medya Linkleri
+                </a>
+
+                <div class="pt-4 pb-2">
+                    <p class="px-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Hizmetler & Teknoloji</p>
+                </div>
+
+                <a href="/Admin/Skill" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(currentPath.StartsWith("/admin/skill") ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                    Yetenekler
+                </a>
+                <a href="/Admin/TechStack" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(currentPath.StartsWith("/admin/techstack") ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                    Teknoloji Şeridi
+                </a>
+
+                <a href="/Admin/Service" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(currentPath.StartsWith("/admin/service") ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Hizmetler
+                </a>
+
+                <a href="/Admin/WorkProcess" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(currentPath.StartsWith("/admin/workprocess") ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    Nasıl Çalışıyorum (Süreç)
+                </a>
+
+                <a href="/Admin/Statistic" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(currentPath.StartsWith("/admin/statistic") ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                    </svg>
+                    İstatistikler
+                </a>
+
+                <a href="/Admin/Testimonial" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(currentPath.StartsWith("/admin/testimonial") ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                    Gelen Yorumlar
+                </a>
+
+                <div class="pt-4 pb-2">
+                    <p class="px-4 text-xs font-bold text-gray-500 uppercase tracking-widest">Portfolyo</p>
+                </div>
+
+                <a href="/Admin/Project" class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all @(currentPath.StartsWith("/admin/project") ? activeClass : inactiveClass)">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                    Projelerim
+                </a>
+                
+                <div class="pt-8 mt-4 border-t border-white/5">
+                    <a href="/" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-emerald-600/20 to-teal-600/20 text-emerald-500 hover:text-white hover:bg-emerald-600 font-bold border border-emerald-500/20 transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        Siteyi Gör
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Overlay (Mobil için Sidebar açıkken arka planı karartır) -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 hidden md:hidden"></div>
+
+        <!-- Ana İçerik -->
+        <main class="flex-1 overflow-y-auto bg-[#0a0a0a] relative">
+            <div class="max-w-screen-2xl mx-auto p-6 md:p-10">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mobil Menü Mantığı
+        const btn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        function toggleMenu() {
+            const isClosed = sidebar.classList.contains('-translate-x-full');
+            if (isClosed) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden'); // mobilde arkaplan kaymasını engelle
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        btn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+    </script>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0505" />
+    <!-- SEO -->
+    <title>@ViewData["Title"] - SametCodes</title>
+    <meta name="description" content="SametCodes - Hızlı, SEO uyumlu ve mobil öncelikli premium web tasarım ve yazılım geliştirme hizmetleri." />
+    <meta property="og:title" content="SametCodes - Premium Web Tasarım" />
+    <meta property="og:description" content="Hızlı, SEO uyumlu ve mobil öncelikli premium web siteleri." />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="~/images/favicon.png" />
+
+    <!-- Hız: dış kaynaklara erken bağlantı -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind: derlenmiş ve küçültülmüş CSS (npm run build:css) -->
+    <link rel="stylesheet" href="~/css/tailwind.css" asp-append-version="true" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="bg-[#fdfbf7] text-gray-900 antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 w-full z-50 bg-[#fdfbf7]/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a asp-controller="Home" asp-action="Index" class="flex items-center gap-1 text-2xl font-black tracking-tight hover:scale-105 transition-transform" aria-label="SametCodes">
+                    <img src="/images/sametcodes-logo.png" alt="SametCodes Logo" class="w-20 h-20 object-contain flex-shrink-0 scale-[1.3] -ml-2" />
+                    <span class="-ml-1"><span class="grad-red-text">Samet</span><span class="text-black">Codes</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 lg:space-x-10 items-center" aria-label="Ana menü">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link text-gray-800 hover:text-black transition flex items-center gap-2 font-bold" data-href="/">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#d61f1f] inline-block opacity-0 transition-opacity"></span>
+                        <span data-i18n="nav_home">Ana Sayfa</span>
+                    </a>
+                    <a asp-controller="About" asp-action="Index" class="nav-link text-gray-800 hover:text-black transition flex items-center gap-2 font-bold" data-href="/About">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#d61f1f] inline-block opacity-0 transition-opacity"></span>
+                        <span data-i18n="nav_about">Hakkımda</span>
+                    </a>
+                    <a asp-controller="Works" asp-action="Index" class="nav-link text-gray-800 hover:text-black transition flex items-center gap-2 font-bold" data-href="/Works">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#d61f1f] inline-block opacity-0 transition-opacity"></span>
+                        <span data-i18n="nav_works">Projeler</span>
+                    </a>
+                    <a href="/#services" class="nav-link text-gray-800 hover:text-black transition flex items-center gap-2 font-bold" data-href="/#services">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#d61f1f] inline-block opacity-0 transition-opacity"></span>
+                        <span data-i18n="nav_services">Hizmetler</span>
+                    </a>
+                    <a href="/#skills" class="nav-link text-gray-800 hover:text-black transition flex items-center gap-2 font-bold" data-href="/#skills">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#d61f1f] inline-block opacity-0 transition-opacity"></span>
+                        <span data-i18n="nav_skills">Yetenekler</span>
+                    </a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-3">
+                    <!-- Dil Seçici: segmentli TR | EN anahtarı -->
+                    <div class="lang-seg" role="group" aria-label="Dil seçimi">
+                        <button type="button" data-lang="tr" class="lang-opt" aria-label="Türkçe">TR</button>
+                        <button type="button" data-lang="en" class="lang-opt" aria-label="English">EN</button>
+                    </div>
+
+                    <a href="/#contact" class="grad-red text-white text-sm font-bold px-6 py-2.5 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition" data-i18n="nav_contact">İletişime Geç</a>
+                </div>
+
+                <!-- Mobil menü butonu -->
+                <button id="mobile-menu-btn" class="md:hidden focus:outline-none transition-transform hover:scale-105" aria-label="Menüyü aç" aria-expanded="false">
+                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="url(#red-grad)" stroke-width="2.5">
+                        <defs>
+                            <linearGradient id="red-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#8f0a0a" />
+                                <stop offset="50%" stop-color="#d61f1f" />
+                                <stop offset="100%" stop-color="#ff3b30" />
+                            </linearGradient>
+                        </defs>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobil Menü -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#fdfbf7] border-t border-gray-200 shadow-xl">
+            <div class="px-4 pt-4 pb-6 space-y-1.5 text-center">
+                <a asp-controller="Home" asp-action="Index" class="nav-link block px-4 py-3 rounded-xl text-gray-800 hover:text-black font-extrabold transition-all" data-href="/" data-i18n="nav_home">Ana Sayfa</a>
+                <a asp-controller="About" asp-action="Index" class="nav-link block px-4 py-3 rounded-xl text-gray-800 hover:text-black font-extrabold transition-all" data-href="/About" data-i18n="nav_about">Hakkımda</a>
+                <a asp-controller="Works" asp-action="Index" class="nav-link block px-4 py-3 rounded-xl text-gray-800 hover:text-black font-extrabold transition-all" data-href="/Works" data-i18n="nav_works">Projeler</a>
+                <a href="/#services" class="nav-link block px-4 py-3 rounded-xl text-gray-800 hover:text-black font-extrabold transition-all" data-href="/#services" data-i18n="nav_services">Hizmetler</a>
+                <a href="/#skills" class="nav-link block px-4 py-3 rounded-xl text-gray-800 hover:text-black font-extrabold transition-all" data-href="/#skills" data-i18n="nav_skills">Yetenekler</a>
+                
+                <div class="pt-4 flex justify-center items-center">
+                    <div class="flex items-center gap-4 bg-gray-100 rounded-full px-5 py-1.5 shadow-inner">
+                        <button type="button" data-lang="tr" class="lang-opt-mobile text-gray-400 font-bold text-sm transition-all transform" aria-label="Türkçe">TR</button>
+                        <span class="w-[1px] h-3 bg-gray-300 rounded-full"></span>
+                        <button type="button" data-lang="en" class="lang-opt-mobile text-gray-400 font-bold text-sm transition-all transform" aria-label="English">EN</button>
+                    </div>
+                </div>
+                
+                <div class="pt-5 pb-2 flex justify-center px-4">
+                    <a href="/#contact" class="grad-red text-white text-base font-bold px-10 py-3.5 rounded-full shadow-lg shadow-red-900/20 w-full" data-i18n="nav_contact">İletişime Geç</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0505] text-gray-400 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <a asp-controller="Home" asp-action="Index" class="flex items-center gap-1 text-2xl font-black tracking-tighter text-white" aria-label="SametCodes">
+                        <img src="/images/sametcodes-logo.png" alt="Logo" class="w-10 h-10 object-contain -ml-1 scale-125 brightness-0 invert" />
+                        <span><span class="text-white">Samet</span><span class="text-gray-400">Codes</span></span>
+                    </a>
+                    <p class="mt-4 text-sm leading-relaxed max-w-xs">Hızlı, SEO uyumlu ve mobil öncelikli premium web tasarım ve yazılım çözümleri.</p>
+                </div>
+
+                <nav aria-label="Alt menü">
+                    <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-widest">Sayfalar</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/#services" class="hover:text-red-500 transition-colors">Hizmetler</a></li>
+                        <li><a asp-controller="About" asp-action="Index" class="text-gray-400 hover:text-red-500 transition font-medium" data-i18n="nav_about">Hakkımda</a></li>
+                        <li><a asp-controller="Works" asp-action="Index" class="hover:text-red-500 transition-colors">Projeler</a></li>
+                        <li><a href="/#skills" class="hover:text-red-500 transition-colors">Yetenekler</a></li>
+                        <li><a href="/#contact" class="hover:text-red-500 transition-colors">İletişim</a></li>
+                    </ul>
+                </nav>
+
+                <div>
+                    <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-widest">İletişim</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="mailto:hello@sametcodes.com" class="hover:text-red-500 transition-colors">hello@sametcodes.com</a></li>
+                        <li>Türkiye</li>
+                    </ul>
+                    <div class="mt-6 flex gap-4">
+                        @inject AkuDevs.DAL.AppDbContext DbContext
+                        @{
+                            var footerSocials = DbContext.SocialMedias.Where(s => s.IsActive).OrderBy(s => s.OrderIndex).ToList();
+                        }
+                        @foreach (var sm in footerSocials)
+                        {
+                            string hoverClass = sm.PlatformName switch {
+                                "LinkedIn" => "hover:text-[#0A66C2]",
+                                "WhatsApp" => "hover:text-[#25D366]",
+                                "Instagram" => "hover:text-[#E1306C]",
+                                "YouTube" => "hover:text-[#FF0000]",
+                                "X (Twitter)" => "hover:text-white",
+                                "Medium" => "hover:text-[#00ab6c]",
+                                _ => "hover:text-white"
+                            };
+
+                            <a href="@sm.Url" target="_blank" rel="noopener noreferrer" class="text-gray-400 @hoverClass transition-colors" aria-label="@sm.PlatformName">
+                                <div class="w-5 h-5">
+                                    @Html.Raw(sm.IconSvg)
+                                </div>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6 border-t border-white/10 flex justify-center text-xs">
+                <p>&copy; @DateTime.Now.Year SametCodes. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-black text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.3)] opacity-0 invisible transition-all duration-300 hover:bg-[#F29F05] hover:text-black hover:scale-110 z-50 border border-white/20" aria-label="Yukarı Çık">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
+    <script>
+        /* Mobil menü: bağımsız blok (başka bir script hata verse de çalışır) */
+        (function () {
+            var btn = document.getElementById('mobile-menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+            function setOpen(open) {
+                menu.classList.toggle('hidden', !open);
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                setOpen(menu.classList.contains('hidden'));
+            });
+            menu.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    setOpen(false);
+                    if (typeof updateActiveNav === 'function') setTimeout(updateActiveNav, 50);
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (!menu.classList.contains('hidden') && !menu.contains(e.target) && !btn.contains(e.target)) setOpen(false);
+            });
+            window.addEventListener('resize', function () { if (window.innerWidth >= 768) setOpen(false); });
+        })();
+    </script>
+
+    <script>
+        /* ---------- Dil sözlüğü (statik) ---------- */
+        const I18N = {
+            tr: {
+                nav_home: "Ana Sayfa", nav_works: "Projeler", nav_services: "Hizmetler", nav_skills: "Yetenekler", nav_contact: "İletişime Geç", nav_about: "Hakkımda",
+                hero_badge: "Freelance Web Geliştirici",
+                hero_title1: "Dijital Vizyonunuzu",
+                hero_title2: "Gerçeğe Dönüştürün",
+                hero_sub: "Hızlı, SEO uyumlu ve mobil öncelikli premium web tasarımlarıyla markanızı rakiplerinizin bir adım önüne taşıyın.",
+                hero_cta1: "Projelerimi İncele", hero_cta2: "Benimle Çalış",
+                works_title1: "Projelerime", works_title2: "Göz Atın",
+                works_soon: "Projeler buraya gelecek... (Åu anlık tasarım taslağı)"
+            },
+            en: {
+                nav_home: "Home", nav_works: "Works", nav_services: "Services", nav_skills: "Skills", nav_contact: "Contact me", nav_about: "About Me",
+                hero_badge: "Freelance Web Developer",
+                hero_title1: "Turn Your Digital Vision",
+                hero_title2: "Into Reality",
+                hero_sub: "Put your brand one step ahead of the competition with fast, SEO-friendly, mobile-first premium web design.",
+                hero_cta1: "View My Work", hero_cta2: "Work With Me",
+                works_title1: "View My", works_title2: "Work",
+                works_soon: "Projects will appear here... (design draft for now)"
+            }
+        };
+
+        function setLang(lang) {
+            if (!I18N[lang]) lang = 'tr';
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const v = I18N[lang][el.dataset.i18n];
+                if (v) el.textContent = v;
+            });
+            
+            document.querySelectorAll('.lang-opt, .lang-opt-mobile').forEach(b => {
+                const on = b.dataset.lang === lang;
+                if(b.classList.contains('lang-opt')) {
+                    b.classList.toggle('is-active', on);
+                }
+                if(b.classList.contains('lang-opt-mobile')) {
+                    if(on) {
+                        b.classList.add('text-[#d61f1f]', 'scale-110');
+                        b.classList.remove('text-gray-400');
+                    } else {
+                        b.classList.add('text-gray-400');
+                        b.classList.remove('text-[#d61f1f]', 'scale-110');
+                    }
+                }
+                if(on) b.setAttribute('aria-pressed', 'true');
+                else b.setAttribute('aria-pressed', 'false');
+            });
+            try { localStorage.setItem('lang', lang); } catch (e) {}
+        }
+
+        let saved = null; try { saved = localStorage.getItem('lang'); } catch (e) {}
+        const initial = saved || ((navigator.language || 'tr').toLowerCase().startsWith('tr') ? 'tr' : 'en');
+        setLang(initial);
+
+        document.querySelectorAll('.lang-opt, .lang-opt-mobile').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+        /* ---------- Active Nav Link Tracker ---------- */
+        function updateActiveNav() {
+            const path = window.location.pathname;
+            const hash = window.location.hash;
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const target = link.getAttribute('data-href');
+                let isActive = false;
+                
+                if(target === '/') {
+                    isActive = (path === '/' || path.toLowerCase() === '/home' || path.toLowerCase() === '/home/index') && hash === '';
+                } else if(target.includes('#')) {
+                    isActive = (path === '/' || path.toLowerCase() === '/home' || path.toLowerCase() === '/home/index') && hash === target.replace('/', '');
+                } else {
+                    isActive = path.toLowerCase().startsWith(target.toLowerCase());
+                }
+
+                if (isActive) {
+                    // Desktop active styles
+                    link.classList.remove('text-gray-800');
+                    link.classList.add('text-black');
+                    const dot = link.querySelector('span.w-1\\.5');
+                    if(dot) dot.classList.remove('opacity-0');
+                    
+                    // Mobile active styles (has rounded-xl)
+                    if(link.classList.contains('rounded-xl')) {
+                        link.classList.add('bg-[#fff0f0]', 'border', 'border-red-100', 'shadow-sm', 'text-[#d61f1f]');
+                        link.classList.remove('text-gray-800', 'text-black', 'border-transparent');
+                    }
+                } else {
+                    link.classList.add('text-gray-800', 'border-transparent');
+                    link.classList.remove('text-black', 'text-[#d61f1f]', 'bg-[#fff0f0]', 'border', 'border-red-100', 'shadow-sm', 'bg-red-50');
+                    const dot = link.querySelector('span.w-1\\.5');
+                    if(dot) dot.classList.add('opacity-0');
+                }
+            });
+        }
+        window.addEventListener('hashchange', updateActiveNav);
+        document.addEventListener('DOMContentLoaded', updateActiveNav);
+
+        /* ---------- Mobil menü: ayrı script bloğunda (yukarıda) ---------- */
+
+        /* ---------- Yukarı Çık Butonu ---------- */
+        const scrollBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.remove('opacity-0', 'invisible');
+                scrollBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'invisible');
+                scrollBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

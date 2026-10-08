@@ -1,0 +1,164 @@
+﻿@model IEnumerable<AkuDevs.Models.Testimonial>
+@{
+    ViewData["Title"] = "Gelen Yorumlar";
+}
+
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-white mb-2">Gelen Yorumlar</h1>
+    <p class="text-gray-400">Web sitesinden gelen kullanıcı yorumlarını buradan yönetin ve onaylayın.</p>
+</div>
+
+<div class="bg-gray-800 rounded-xl shadow-lg border border-gray-700 overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-gray-900/50 text-gray-300 text-sm uppercase tracking-wider border-b border-gray-700">
+                    <th class="p-4 font-semibold">Tarih</th>
+                    <th class="p-4 font-semibold">Kullanıcı</th>
+                    <th class="p-4 font-semibold">Mesaj</th>
+                    <th class="p-4 font-semibold text-center">Durum</th>
+                    <th class="p-4 font-semibold text-right">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-700/50">
+                @foreach (var item in Model)
+                {
+                    <tr class="hover:bg-gray-700/20 transition-colors">
+                        <td class="p-4 text-gray-300 text-sm whitespace-nowrap">@item.CreatedAt.ToString("dd MMM yyyy HH:mm")</td>
+                        <td class="p-4">
+                            <div class="flex items-center gap-3">
+                                @if (!string.IsNullOrEmpty(item.AvatarUrl))
+                                {
+                                    <img src="@item.AvatarUrl" class="w-10 h-10 rounded-full border border-gray-600" />
+                                }
+                                <div>
+                                    <div class="font-bold text-white">@item.FullName</div>
+                                    <div class="text-xs text-gray-400">@item.Title - @item.Rating Yıldız</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-4 text-gray-300 text-sm">
+                            <div class="max-w-xs truncate" title="@item.Message">@item.Message</div>
+                        </td>
+                        <td class="p-4 text-center">
+                            @if (item.IsApproved)
+                            {
+                                <span class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">Yayında</span>
+                            }
+                            else
+                            {
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-bold rounded-full border border-yellow-500/20">Bekliyor</span>
+                            }
+                        </td>
+                        <td class="p-4">
+                            <div class="flex justify-end gap-2">
+                                <button type="button" onclick="openDetailModal('@item.FullName.Replace("'", "\\'")', '@item.Title.Replace("'", "\\'")', '@item.Message.Replace("'", "\\'").Replace("\r", "").Replace("\n", " ")', @item.Rating)" class="px-3 py-1.5 bg-blue-500/10 text-blue-400 text-sm font-medium rounded-lg hover:bg-blue-500/20 transition-colors">
+                                    Detay
+                                </button>
+                                <form asp-action="Approve" asp-route-id="@item.Id" method="post" class="inline">
+                                    @if(item.IsApproved)
+                                    {
+                                        <button type="submit" class="px-3 py-1.5 bg-gray-600/30 text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-600/50 transition-colors">
+                                            Gizle
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="px-3 py-1.5 bg-green-600/30 text-green-400 text-sm font-medium rounded-lg hover:bg-green-600/50 transition-colors border border-green-600/30">
+                                            Onayla
+                                        </button>
+                                    }
+                                </form>
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="inline" onsubmit="return confirm('Bu yorumu silmek istediğinize emin misiniz?');">
+                                    <button type="submit" class="px-3 py-1.5 bg-red-500/10 text-red-400 text-sm font-medium rounded-lg hover:bg-red-500/20 transition-colors">
+                                        Sil
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                
+                @if(!Model.Any())
+                {
+                    <tr>
+                        <td colspan="5" class="p-8 text-center text-gray-500">
+                            Henüz hiç yorum gelmemiş.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Mesaj Detay Modalı -->
+<div id="detailModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeDetailModal()"></div>
+    
+    <!-- Modal Content -->
+    <div class="relative bg-gray-800 rounded-2xl shadow-2xl border border-gray-700 w-full max-w-lg overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="detailModalContent">
+        <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 id="modalName" class="text-xl font-bold text-white"></h3>
+                    <p id="modalTitle" class="text-sm text-gray-400"></p>
+                </div>
+                <button onclick="closeDetailModal()" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div class="mb-4 flex text-yellow-500" id="modalRating"></div>
+            
+            <div class="bg-gray-900/50 p-4 rounded-xl border border-gray-700 max-h-64 overflow-y-auto">
+                <p id="modalMessage" class="text-gray-300 text-sm leading-relaxed whitespace-pre-wrap"></p>
+            </div>
+        </div>
+        <div class="px-6 py-4 bg-gray-900/50 border-t border-gray-700 flex justify-end">
+            <button onclick="closeDetailModal()" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium">Kapat</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function openDetailModal(name, title, message, rating) {
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            
+            let stars = '';
+            for(let i=0; i<rating; i++) {
+                stars += '<svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+            }
+            for(let i=rating; i<5; i++) {
+                stars += '<svg class="w-5 h-5 text-gray-600 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+            }
+            document.getElementById('modalRating').innerHTML = stars;
+            
+            const modal = document.getElementById('detailModal');
+            const content = document.getElementById('detailModalContent');
+            
+            modal.classList.remove('hidden');
+            // Trigger reflow
+            void modal.offsetWidth;
+            
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        }
+        
+        function closeDetailModal() {
+            const modal = document.getElementById('detailModal');
+            const content = document.getElementById('detailModalContent');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+}

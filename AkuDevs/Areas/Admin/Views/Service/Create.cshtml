@@ -1,0 +1,77 @@
+@model AkuDevs.Models.Service
+@{
+    ViewData["Title"] = "Yeni Hizmet";
+}
+
+<div class="mb-8">
+    <a asp-action="Index" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold shadow-[0_0_15px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(147,51,234,0.6)] transition-all hover:-translate-x-1 mb-6">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+        Geri Dön
+    </a>
+    <h2 class="text-3xl font-black text-white tracking-tight">Hizmet Ekle</h2>
+</div>
+
+<div class="relative group max-w-4xl">
+    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-20 transition duration-1000 group-hover:opacity-40 group-hover:duration-200"></div>
+    <div class="relative bg-[#141414] border border-white/10 rounded-2xl p-6 md:p-10 shadow-2xl">
+        <form asp-action="Create" method="post" enctype="multipart/form-data" class="space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-400 mb-2">Başlık (TR)</label>
+                    <input asp-for="TitleTr" class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-gray-600" />
+                    <span asp-validation-for="TitleTr" class="text-red-500 text-xs mt-1 block"></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-400 mb-2">Başlık (EN)</label>
+                    <input asp-for="TitleEn" class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-gray-600" />
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-400 mb-2">Açıklama (TR)</label>
+                    <textarea asp-for="DescriptionTr" rows="3" class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-gray-600"></textarea>
+                    <span asp-validation-for="DescriptionTr" class="text-red-500 text-xs mt-1 block"></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-400 mb-2">Açıklama (EN)</label>
+                    <textarea asp-for="DescriptionEn" rows="3" class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-gray-600"></textarea>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-400 mb-2">Kart Görseli (Bilgisayardan Seç)</label>
+                    <input asp-for="ImageFile" type="file" accept="image/*" class="w-full bg-[#0a0a0a] border border-white/10 text-blue-400 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-500/10 file:text-blue-500 hover:file:bg-blue-500/20" />
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-400 mb-2">İkon SVG</label>
+                    <input asp-for="IconSvg" class="w-full bg-[#0a0a0a] border border-white/10 text-gray-300 font-mono text-xs rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="<svg>...</svg>" />
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="flex items-center gap-3 bg-black/30 p-4 rounded-xl border border-white/5">
+                    <input asp-for="IsLargeCard" type="checkbox" class="w-5 h-5 accent-blue-500 rounded bg-[#0a0a0a] border-white/10 cursor-pointer" />
+                    <label class="text-sm font-medium text-white cursor-pointer select-none">Büyük Kart (2x) mi?</label>
+                </div>
+                <div class="flex items-center gap-3 bg-black/30 p-4 rounded-xl border border-white/5">
+                    <input asp-for="IsActive" type="checkbox" class="w-5 h-5 accent-blue-500 rounded bg-[#0a0a0a] border-white/10 cursor-pointer" />
+                    <label class="text-sm font-medium text-white cursor-pointer select-none">Sitede Görünsün mü?</label>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-400 mb-2">Sıralama</label>
+                    <input asp-for="OrderIndex" type="number" class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" />
+                </div>
+            </div>
+
+            <div class="pt-4 flex justify-end">
+                <button type="submit" class="px-8 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-yellow-500 shadow-lg shadow-purple-500/20 transition-all hover:-translate-y-1 hover:shadow-purple-500/40">
+                    Ekle ve Kaydet
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

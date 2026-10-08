@@ -1,0 +1,241 @@
+@section Scripts {
+48:     <script>
+49:         document.addEventListener("DOMContentLoaded", () => {
+50:             const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+51: 
+52:             // Hero girişi (JS yoksa/azaltılmış hareket varsa atlanır, içerik zaten görünür)
+53:             if (!reduce && window.gsap) {
+54:                 gsap.from(".hero-content", { y: 50, opacity: 0, duration: 1.5, ease: "power3.out", delay: 0.2 });
+55:             }
+56: 
+57:             // Kaydırınca beliren öğeler: IntersectionObserver (GSAP'a bağımlı değil, asla gizli kalmaz)
+58:             const items = document.querySelectorAll('.reveal');
+59:             if (reduce || !('IntersectionObserver' in window)) {
+60:                 items.forEach(el => el.classList.add('is-visible'));
+61:                 return;
+62:             }
+63:             const io = new IntersectionObserver((entries) => {
+64:                 entries.forEach(e => {
+65:                     if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+66:                 });
+67:             }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+68:             items.forEach(el => io.observe(el));
+69:         });
+70: 
+71:         // Testimonial Poker Cards Logic
+72:         const tCards = document.querySelectorAll('.testimonial-card');
+73:         let activeIndex = 0;
+74:         let tInterval;
+75:         
+76:         function updateTestimonials() {
+77:             if(!tCards.length) return;
+78:             tCards.forEach((card, i) => {
+79:                 let diff = i - activeIndex;
+80:                 if (diff > Math.floor(tCards.length/2)) diff -= tCards.length;
+81:                 if (diff < -Math.floor(tCards.length/2)) diff += tCards.length;
+82: 
+83:                 // Z-index & positioning
+84:                 if (diff === 0) {
+85:                     card.style.transform = 'translateX(0) scale(1) translateY(-10px)';
+86:                     card.style.zIndex = 30;
+87:                     card.style.opacity = 1;
+88:                     card.style.filter = 'blur(0px)';
+89:                     card.style.visibility = 'visible';
+90:                     card.style.pointerEvents = 'auto';
+91:                 } else {
+92:                     let absDiff = Math.abs(diff);
+93:                     let scale = Math.max(0, 1 - 0.15 * absDiff);
+94:                     let opacity = Math.max(0, 1 - 0.2 * absDiff);
+95:                     
+96:                     card.style.transform = 'translateX(' + (55 * diff) + '%) scale(' + scale + ') rotate(' + (4 * diff) + 'deg)';
+97:                     card.style.zIndex = 20 - absDiff;
+98:                     card.style.opacity = opacity;
+99:                     card.style.filter = 'blur(' + (1.5 * absDiff) + 'px)';
+100:                     card.style.visibility = opacity > 0 ? 'visible' : 'hidden';
+101:                     card.style.pointerEvents = opacity > 0 ? 'auto' : 'none';
+102:                 }
+103:             });
+104:         }
+105:         
+106:         tCards.forEach((card, index) => {
+107:             card.addEventListener('click', () => {
+108:                 activeIndex = index;
+109:                 updateTestimonials();
+110:                 resetInterval();
+111:             });
+112:         });
+113:         
+114:         window.nextTestimonial = () => {
+115:             if(tCards.length > 0){
+116:                 activeIndex = (activeIndex + 1) % tCards.length;
+117:                 updateTestimonials();
+118:                 resetInterval();
+119:             }
+120:         };
+121: 
+122:         window.prevTestimonial = () => {
+123:             if(tCards.length > 0){
+124:                 activeIndex = (activeIndex - 1 + tCards.length) % tCards.length;
+125:                 updateTestimonials();
+126:                 resetInterval();
+127:             }
+128:         };
+129: 
+130:         function resetInterval() {
+131:             clearInterval(tInterval);
+132:             tInterval = setInterval(() => {
+133:                 if(tCards.length > 0){
+134:                     activeIndex = (activeIndex + 1) % tCards.length;
+135:                     updateTestimonials();
+136:                 }
+137:             }, 6000);
+138:         }
+139:         
+140:         updateTestimonials();
+141:         resetInterval();
+142: 
+143:         /* ---------- YORUM MODALI LOGIC ---------- */
+144:         const cModal = document.getElementById('commentModal');
+145:         const cModalContent = document.getElementById('commentModalContent');
+146:         const avatarGrid = document.getElementById('avatarGrid');
+147:         let selectedAvatar = null;
+148: 
+149:         // Generate 15 premium 'avataaars' (Clean and Professional)
+150:         const avatarSeeds = ["Felix", "Aneka", "Jasper", "Missy", "Leo", "Toby", "George", "Milo", "Ginger", "Bella", "Max", "Lola", "Cleo", "Jack", "Luna"];
+151:         const bgColors = ['e5e7eb', 'fcd34d', 'fca5a5', 'bae6fd', 'c4b5fd'];
+152:         avatarSeeds.forEach((seed, index) => {
+153:             const bg = bgColors[index % bgColors.length];
+154:             const img = `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}&backgroundColor=${bg}&mouth=default,smile,twinkle&eyes=default,happy&accessoriesProbability=20&facialHairProbability=10`;
+155:             const div = document.createElement('div');
+156:             // Fixed width for horizontal scroll
+157:             div.className = "cursor-pointer rounded-full border-[3px] border-transparent hover:scale-110 transition-transform overflow-hidden shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gray-100";
+158:             div.innerHTML = `<img src="${img}" class="w-full h-full object-cover">`;
+159:             div.onclick = () => {
+160:                 // remove selected from all
+161:                 Array.from(avatarGrid.children).forEach(c => c.classList.remove('border-[#F29F05]', 'scale-110', 'shadow-md'));
+162:                 div.classList.add('border-[#F29F05]', 'scale-110', 'shadow-md');
+163:                 selectedAvatar = img;
+164:                 // clear custom file text if any
+165:                 document.getElementById('customAvatarName').classList.add('hidden');
+166:                 document.getElementById('customAvatarInput').value = '';
+167:             };
+168:             avatarGrid.appendChild(div);
+169:         });
+170: 
+171:         // Star Rating Logic
+172:         const starContainer = document.getElementById('starRatingContainer');
+173:         const ratingInput = document.getElementById('selectedRating');
+174:         let currentRating = 5;
+175: 
+176:         function renderStars(rating) {
+177:             starContainer.innerHTML = '';
+178:             for(let i=1; i<=5; i++) {
+179:                 const star = document.createElement('div');
+180:                 star.className = `cursor-pointer transition-all hover:scale-125 ${i <= rating ? 'text-[#F29F05]' : 'text-gray-300'}`;
+181:                 star.innerHTML = `<svg class="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`;
+182:                 
+183:                 // Hover effect
+184:                 star.onmouseenter = () => renderStarsPreview(i);
+185:                 star.onmouseleave = () => renderStarsPreview(currentRating);
+186:                 
+187:                 // Click effect
+188:                 star.onclick = () => {
+189:                     currentRating = i;
+190:                     ratingInput.value = i;
+191:                     renderStarsPreview(i);
+192:                 };
+193:                 starContainer.appendChild(star);
+194:             }
+195:         }
+196: 
+197:         function renderStarsPreview(rating) {
+198:             Array.from(starContainer.children).forEach((star, index) => {
+199:                 if(index < rating) {
+200:                     star.classList.add('text-[#F29F05]');
+201:                     star.classList.remove('text-gray-300');
+202:                 } else {
+203:                     star.classList.add('text-gray-300');
+204:                     star.classList.remove('text-[#F29F05]');
+205:                 }
+206:             });
+207:         }
+208:         
+209:         // Initial render
+210:         renderStars(currentRating);
+211: 
+212: 
+213:         // Custom File Input Listener
+214:         document.getElementById('customAvatarInput').addEventListener('change', function(e) {
+215:             if(this.files && this.files[0]) {
+216:                 document.getElementById('customAvatarName').classList.remove('hidden');
+217:                 document.getElementById('customAvatarName').textContent = this.files[0].name + " seçildi!";
+218:                 // remove selected from avatars
+219:                 Array.from(avatarGrid.children).forEach(c => c.classList.remove('border-[#F29F05]', 'scale-110', 'shadow-md'));
+220:                 selectedAvatar = 'custom';
+221:             }
+222:         });
+223: 
+224:         window.openCommentModal = () => {
+225:             cModal.classList.remove('opacity-0', 'invisible');
+226:             
+227:             // Trigger Spring Animation
+228:             cModalContent.classList.remove('scale-75', 'translate-y-10', 'opacity-0');
+229:             cModalContent.classList.add('scale-100', 'translate-y-0', 'opacity-100');
+230:             
+231:             document.body.style.overflow = 'hidden';
+232:         };
+233: 
+234:         window.closeCommentModal = () => {
+235:             cModal.classList.add('opacity-0', 'invisible');
+236:             
+237:             // Revert Spring Animation
+238:             cModalContent.classList.add('scale-75', 'translate-y-10', 'opacity-0');
+239:             cModalContent.classList.remove('scale-100', 'translate-y-0', 'opacity-100');
+240:             
+241:             document.body.style.overflow = 'auto';
+242:         };
+243: 
+244:         window.submitComment = () => {
+245:             alert(`Harika! ${currentRating} yıldızlı yorumunuz başarıyla alındı ve onay sürecine gönderildi. Teşekkürler!`);
+246:             closeCommentModal();
+247:         };
+248: 
+249:         // Close on background click
+250:         cModal.addEventListener('click', (e) => {
+251:             if(e.target === cModal) closeCommentModal();
+252:         });
+253: 
+254:     </script>
+255: }
+256: 
+257: 
+258: 
+259: 
+260: 
+261: 
+262: 
+263: 
+264: 
+265: 
+266: 
+267: 
+268: 
+269: 
+270: 
+271: 
+272: 
+273: 
+274: 
+275: 
+276: 
+277: 
+278: 
+279: 
+280: 
+281: 
+282: 
+283: 
+284: 
+285: 
+286: 
+The above content shows the entire, complete file contents of the requested file.

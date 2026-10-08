@@ -1,0 +1,486 @@
+﻿Created At: 2026-10-03T21:29:22+03:00
+Completed At: 2026-10-03T21:29:22+03:00
+The tool's output was truncated due to being too long. You can find the full output in a file at file:///C:/Users/Samet/.gemini/antigravity/brain/73987e31-9aa7-47e3-8e4b-b41a9d82fbdc/.system_generated/steps/558/output.txt.
+
+Here is a preview with the middle of the output truncated:
+The following changes were made by the replace_file_content tool to: c:\Users\Samet\Desktop\Project\AkuDevs\AkuDevs\Views\Home\Index.cshtml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -274,7 +274,87 @@
+     </div>
+ </section>
+ 
+-<!-- Ä°LETÄ°ÅÄ°M / CTA (KÄ±rmÄ±zÄ± gradyan) -->
++<!-- MÃœÅTERÄ° YORUMLARI -->
++<section id="testimonials" class="py-32 relative overflow-hidden bg-gradient-to-r from-[#F29F05] via-[#FFB732] to-[#F29F05] animate-bg-pan border-y border-[#F29F05]/50">
++    <!-- Overlay subtle pattern/texture -->
++    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.8)_1px,transparent_1px)]" style="background-size: 20px 20px;"></div>
++    
++    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
++        <span class="inline-block mb-4 px-5 py-1.5 rounded-full bg-white/20 text-white text-sm font-bold uppercase tracking-widest backdrop-blur-md border border-white/30">Memnuniyet</span>
++        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-sm">GeliÅŸtirdiÄŸim BaÄŸlar</h2>
++        <p class="text-white/90 text-lg mb-20 max-w-xl mx-auto font-medium">MÃ¼ÅŸterilerimin projeleriyle kurduÄŸumuz uzun soluklu iÅŸ ortaklÄ±klarÄ± hakkÄ±nda ne dÃ¼ÅŸÃ¼ndÃ¼klerini dinleyin.</p>
++
++        <!-- POKER CARDS CAROUSEL -->
++        <div class="relative w-full h-[350px] flex justify-center items-center mb-16" style="perspective: 1000px;" id="testimonial-carousel">
++            
++            <!-- Comment 1 -->
++            <div class="testimonial-card absolute w-[300px] md:w-[450px] bg-white rounded-3xl p-8 shadow-2xl transition-all duration-700 ease-out cursor-pointer" data-index="0">
++                <div class="text-[#F29F05] mb-4 flex gap-1">
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                </div>
++                <p class="text-gray-700 font-medium text-base md:text-lg italic mb-6">"Web sitemiz iÃ§in aldÄ±ÄŸÄ±mÄ±z hizmetten inanÄ±lmaz memnun kaldÄ±k. Samet Bey projeyi tam zamanÄ±nda ve sÄ±fÄ±r hatayla teslim etti."</p>
++                <div class="flex items-center justify-center gap-4">
++                    <div class="w-12 h-12 rounded-full border-2 border-[#F29F05] overflow-hidden"><img src="https://i.pravatar.cc/150?img=11" alt="Avatar"></div>
++                    <div class="text-left">
++                        <h4 class="font-bold text-black text-sm md:text-base">Ahmet YÄ±lmaz</h4>
++                        <span class="text-xs text-gray-500">Pamir Plastik, CEO</span>
++                    </div>
++                </div>
++            </div>
++
++            <!-- Comment 2 -->
++            <div class="testimonial-card absolute w-[300px] md:w-[450px] bg-white rounded-3xl p-8 shadow-2xl 
+<truncated 2702 of 12594 bytes from the middle of the output>
+ overflow-hidden"><img src="https://i.pravatar.cc/150?img=32" alt="Avatar"></div>
++                    <div class="text-left">
++                        <h4 class="font-bold text-black text-sm md:text-base">Merve Kaya</h4>
++                        <span class="text-xs text-gray-500">Nova Finans, CTO</span>
++                    </div>
++                </div>
++            </div>
++
++            <!-- Comment 3 -->
++            <div class="testimonial-card absolute w-[300px] md:w-[450px] bg-white rounded-3xl p-8 shadow-2xl transition-all duration-700 ease-out cursor-pointer" data-index="2">
++                <div class="text-[#F29F05] mb-4 flex gap-1">
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
++                </div>
++                <p class="text-gray-700 font-medium text-base md:text-lg italic mb-6">"Vizyonu Ã§ok geniÅŸ, sadece kod yazmÄ±yor; projenin bÃ¼yÃ¼mesi ve modern durmasÄ± iÃ§in harika tasarÄ±m fikirleri veriyor."</p>
++                <div class="flex items-center justify-center gap-4">
++                    <div class="w-12 h-12 rounded-full border-2 border-[#F29F05] overflow-hidden"><img src="https://i.pravatar.cc/150?img=68" alt="Avatar"></div>
++                    <div class="text-left">
++                        <h4 class="font-bold text-black text-sm md:text-base">Caner Demir</h4>
++                        <span class="text-xs text-gray-500">Trend Market, Kurucu</span>
++                    </div>
++                </div>
++            </div>
++            
++        </div>
++        
++        <!-- Yorum Yap Butonu -->
++        <button onclick="alert('Yorum Paneli henÃ¼z aktif deÄŸil. Ã‡ok yakÄ±nda (OnaylÄ±) ziyaretÃ§i yorumlarÄ±na aÃ§Ä±lacaktÄ±r.')" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-black text-white font-bold text-lg hover:scale-105 hover:bg-white hover:text-black transition-all shadow-2xl border border-white/20 hover:border-black/20">
++            Siz de Yorum YapÄ±n
++            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
++        </button>
++        
++    </div>
++</section>
++
+ <section id="contact" class="scroll-mt-20 grad-red relative overflow-hidden py-24 px-4">
+     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.12),transparent_60%)] pointer-events-none"></div>
+     <div class="relative max-w-4xl mx-auto text-center reveal">
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.
+Created At: 2026-10-07T16:23:17+03:00
+Completed At: 2026-10-07T16:23:20+03:00
+
+The command exited with code 0.
+Output:
+                <div class="text-5xl font-black text-blue-900/10 mb-4 group-hover:text-blue-600/20 transition-colors">01</div>
+                <h3 class="font-bold text-black text-xl mb-2">KeÅŸif &amp; Planlama</h3>
+                <p class="text-gray-600 text-sm">Ä°htiyaÃ§larÄ±nÄ±zÄ±, hedef kitlenizi ve rakiplerinizi birlikte analiz ederiz.</p>
+            </div>
+            <div class="reveal p-8 rounded-3xl bg-white border-2 border-blue-50 hover:border-blue-600 hover:shadow-xl hover:shadow-blue-600/10 group" style="--d:.1s">
+                <div class="text-5xl font-black text-blue-900/10 mb-4 group-hover:text-blue-600/20 transition-colors">02</div>
+                <h3 class="font-bold text-black text-xl mb-2">TasarÄ±m</h3>
+                <p class="text-gray-600 text-sm">MarkanÄ±za Ã¶zel, kurumsal ve akÄ±lda kalÄ±cÄ± arayÃ¼zÃ¼ tasarlarÄ±m.</p>
+            </div>
+            <div class="reveal p-8 rounded-3xl bg-white border-2 border-blue-50 hover:border-blue-600 hover:shadow-xl hover:shadow-blue-600/10 group" style="--d:.2s">
+                <div class="text-5xl font-black text-blue-900/10 mb-4 group-hover:text-blue-600/20 transition-colors">03</div>
+                <h3 class="font-bold text-black text-xl mb-2">GeliÅŸtirme</h3>
+                <p class="text-gray-600 text-sm">HÄ±zlÄ±, gÃ¼venli ve SEO uyumlu ÅŸekilde kodlar, mobil testlerini yaparÄ±m.</p>
+            </div>
+            <div class="reveal p-8 rounded-3xl bg-white border-2 border-blue-50 hover:border-blue-600 hover:shadow-xl hover:shadow-blue-600/10 group" style="--d:.3s">
+                <div class="text-5xl font-black text-blue-900/10 mb-4 group-hover:text-blue-600/20 transition-colors">04</div>
+                <h3 class="font-bold text-black text-xl mb-2">YayÄ±n &amp; Destek</h3>
+                <p class="text-gray-600 text-sm">YayÄ±na alÄ±r, sonrasÄ±nda destek ve geliÅŸtirmeler iÃ§in yanÄ±nÄ±zda olurum.</p>
+            </div>
+    </div>
+</section>
+
+<!-- Ä°STATÄ°STÄ°KLER -->
+<section class="bg-white pb-16 pt-8 relative z-20">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-[#0a0505] rounded-[2rem] md:rounded-full py-8 px-10 shadow-2xl reveal flex flex-col md:flex-row justify-between items-center gap-8 border border-gray-800">
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">45+</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">BaÅŸarÄ±lÄ±<br>Proje</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">%100</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">MÃ¼ÅŸteri<br>Memnuniyeti</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">5+</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">YÄ±llÄ±k<br>Deneyim</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">7/24</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">SÃ¼rekli<br>Destek</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MÃœÅTERÄ° YORUMLARI -->
+<section id="testimonials" class="py-32 relative overflow-hidden bg-gradient-to-r from-[#F29F05] via-[#FFB732] to-[#F29F05] animate-bg-pan border-y border-[#F29F05]/50">
+    <!-- Overlay subtle pattern/texture -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.8)_1px,transparent_1px)]" style="background-size: 20px 20px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+        <span class="inline-block mb-4 px-5 py-1.5 rounded-full bg-white/20 text-white text-sm font-bold uppercase tracking-widest backdrop-blur-md border border-white/30">Memnuniyet</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-sm">GeliÅŸtirdiÄŸim BaÄŸlar</h2>
+        <p class="text-white/90 text-lg mb-20 max-w-xl mx-auto font-medium">MÃ¼ÅŸterilerimin projeleriyle kurduÄŸumuz uzun soluklu iÅŸ ortaklÄ±klarÄ± hakkÄ±nda ne dÃ¼ÅŸÃ¼ndÃ¼klerini dinleyin.</p>
+
+        <!-- POKER CARDS CAROUSEL -->
+        <div class="relative w-full h-[350px] flex justify-center items-center mb-16" style="perspective: 1000px;" id="testimonial-carousel">
+            
+            <!-- Comment 1 -->
+            <div class="testimonial-card absolute w-[300px] md:w-[450px] bg-white rounded-3xl p-8 shadow-2xl transition-all duration-700 ease-out cursor-pointer" data-index="0">
+                <div class="text-[#F29F05] mb-4 flex gap-1">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+
+Created At: 2026-10-07T23:28:04+03:00
+Completed At: 2026-10-07T23:28:11+03:00
+
+The command exited with code 0.
+Output:
+</section>
+
+<!-- Ã„Â°STATÃ„Â°STÃ„Â°KLER -->
+<section class="bg-white pb-16 pt-8 relative z-20">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-[#0a0505] rounded-[2rem] md:rounded-full py-8 px-10 shadow-2xl reveal flex flex-col md:flex-row justify-between items-center gap-8 border border-gray-800">
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">45+</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">BaÃ…Å¸arÃ„Â±lÃ„Â±<br>Proje</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">%100</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">MÃƒÂ¼Ã…Å¸teri<br>Memnuniyeti</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">5+</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">YÃ„Â±llÃ„Â±k<br>Deneyim</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">7/24</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">SÃƒÂ¼rekli<br>Destek</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MÃƒÅ“Ã…ÂTERÃ„Â° YORUMLARI -->
+<section id="testimonials" class="py-32 relative overflow-hidden bg-gradient-to-r from-[#F29F05] via-[#FFB732] to-[#F29F05] animate-bg-pan border-y border-[#F29F05]/50">
+    <!-- Overlay subtle pattern/texture -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.8)_1px,transparent_1px)]" style="background-size: 20px 20px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+
+
+Created At: 2026-10-07T23:29:01+03:00
+Completed At: 2026-10-07T23:29:02+03:00
+
+The command exited with code 0.
+Output:
+</section>
+
+<!-- Ã„Â°STATÃ„Â°STÃ„Â°KLER -->
+<section class="bg-white pb-16 pt-8 relative z-20">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-[#0a0505] rounded-[2rem] md:rounded-full py-8 px-10 shadow-2xl reveal flex flex-col md:flex-row justify-between items-center gap-8 border border-gray-800">
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">45+</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">BaÃ…Å¸arÃ„Â±lÃ„Â±<br>Proje</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">%100</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">MÃƒÂ¼Ã…Å¸teri<br>Memnuniyeti</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">5+</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">YÃ„Â±llÃ„Â±k<br>Deneyim</div>
+            </div>
+            <div class="hidden md:block w-px h-10 bg-white/20"></div>
+            <div class="flex items-center gap-4">
+                <div class="text-4xl md:text-5xl font-black text-[#F29F05]">7/24</div>
+                <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight">SÃƒÂ¼rekli<br>Destek</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MÃƒÅ“Ã…ÂTERÃ„Â° YORUMLARI -->
+<section id="testimonials" class="py-32 relative overflow-hidden bg-gradient-to-r from-[#F29F05] via-[#FFB732] to-[#F29F05] animate-bg-pan border-y border-[#F29F05]/50">
+    <!-- Overlay subtle pattern/texture -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.8)_1px,transparent_1px)]" style="background-size: 20px 20px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+
+
+Created At: 2026-10-07T23:29:37+03:00
+Completed At: 2026-10-07T23:29:38+03:00
+
+The command exited with code 0.
+Output:
+</section>
+
+<!-- Ã„Â°STATÃ„Â°STÃ„Â°KLER -->
+<section class="bg-white pb-16 pt-8 relative z-20">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-[#0a0505] rounded-[2rem] md:rounded-full py-8 px-10 shadow-2xl reveal flex flex-col md:flex-row justify-between items-center gap-8 border border-gray-800">
+            @if(ViewBag.Statistics != null)
+            {
+                var stats = (IEnumerable<AkuDevs.Models.Statistic>)ViewBag.Statistics;
+                var statList = stats.ToList();
+                for(int i = 0; i < statList.Count; i++)
+                {
+                    <div class="flex items-center gap-4">
+                        <div class="text-4xl md:text-5xl font-black text-[#F29F05]">@statList[i].Value</div>
+                        <div class="text-gray-300 text-sm md:text-base font-bold uppercase tracking-wider leading-tight" data-i18n-dyn-tr="@statList[i].TitleTr" data-i18n-dyn-en="@statList[i].TitleEn">@Html.Raw(statList[i].TitleTr)</div>
+                    </div>
+                    if(i < statList.Count - 1)
+                    {
+                        <div class="hidden md:block w-px h-10 bg-white/20"></div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<!-- MÃœÅTERÄ° YORUMLARI -->
+<section id="testimonials" class="py-32 relative overflow-hidden bg-gradient-to-r from-[#F29F05] via-[#FFB732] to-[#F29F05] animate-bg-pan border-y border-[#F29F05]/50">
+    <!-- Overlay subtle pattern/texture -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.8)_1px,transparent_1px)]" style="background-size: 20px 20px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+        <span class="inline-block mb-4 px-5 py-1.5 rounded-full bg-white/20 text-white text-sm font-bold uppercase tracking-widest backdrop-blur-md border border-white/30">Memnuniyet</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-sm">GeliÃ…Å¸tirdiÃ„Å¸im BaÃ„Å¸lar</h2>
+        <p class="text-white/90 text-lg mb-20 max-w-xl mx-auto font-medium">MÃƒÂ¼Ã…Å¸terilerimin projeleriyle kurduÃ„Å¸umuz uzun soluklu iÃ…Å¸ ortaklÃ„Â±klarÃ„Â± hakkÃ„Â±nda ne dÃƒÂ¼Ã…Å¸ÃƒÂ¼ndÃƒÂ¼klerini dinleyin.</p>
+
+
+Created At: 2026-10-07T23:37:55+03:00
+Completed At: 2026-10-07T23:38:10+03:00
+
+The command exited with code 0.
+Output:
+
+      </div>
+  </section>
+  
+> <!-- MÃœÅTERÄ° YORUMLARI -->
+  <section id="testimonials" class="py-32 relative overflow-hidden bg-gradient-to-r from-[#F29F05] via-[#FFB732] to-[#F
+29F05] animate-bg-pan border-y border-[#F29F05]/50">
+      <!-- Overlay subtle pattern/texture -->
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.8)_1px,transparent_1px)
+]" style="background-size: 20px 20px;"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+          <span class="inline-block mb-4 px-5 py-1.5 rounded-full bg-white/20 text-white text-sm font-bold uppercase tr
+acking-widest backdrop-blur-md border border-white/30">Memnuniyet</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-sm">GeliÅŸtirdiÄŸim BaÄŸlar</h2>
+          <p class="text-white/90 text-lg mb-20 max-w-xl mx-auto font-medium">MÃ¼ÅŸterilerimin projeleriyle kurduÄŸumuz uz
+un soluklu iÅŸ ortaklÄ±klarÄ± hakkÄ±nda ne dÃ¼ÅŸÃ¼ndÃ¼klerini dinleyin.</p>
+  
+          <!-- POKER CARDS CAROUSEL -->
+
+
+
+
+Created At: 2026-10-08T10:46:15+03:00
+Completed At: 2026-10-08T10:46:19+03:00
+
+The command exited with code 0.
+Output:
+                            <div class="text-4xl md:text-6xl font-black mb-2 drop-shadow-lg">@st.Value</div>
+                            <div class="text-white/80 font-medium uppercase tracking-wider text-sm">@st.TitleTr</div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS (Mï¿½teri Yorumlarï¿½) -->
+<section id="testimonials" class="py-32 bg-darkbg text-white relative overflow-hidden reveal">
+    <div class="max-w-7xl mx-auto px-4 text-center relative z-20 mb-16">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">Mï¿½teri <span class="text-gold">Yorumlarï¿½</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Benimle ï¿½alï¿½anlarï¿½n deneyimleri.</p>
+    </div>
+
+    <!-- 3D Carousel (Eski Javascript ile Uyumlu HTML Yapï¿½sï¿½) -->
+    <div class="relative w-full h-[500px] md:h-[450px] flex items-center justify-center z-10 perspective-[1000px] mb-12">
+        @{
+            var testimonials = ViewBag.Testimonials as IEnumerable<AkuDevs.Models.Testimonial>;
+            if (testimonials != null && testimonials.Any())
+            {
+                int index = 0;
+                foreach (var t in testimonials)
+                {
+                    <div class="testimonial-card absolute w-[300px] md:w-[450px] bg-[#1a1414] rounded-3xl p-8 shadow-2xl transition-all duration-700 ease-out cursor-pointer border border-white/5" data-index="@index">
+                        <div class="text-[#F29F05] mb-4 flex gap-1 justify-center">
+                            @for(int i=0; i<t.Rating; i++){
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            }
+                        </div>
+                        <p class="text-gray-300 font-medium text-base md:text-lg italic mb-6 text-center">"@t.Message"</p>
+                        <div class="flex items-center justify-center gap-4">
+                            <div class="w-12 h-12 rounded-full border-2 border-[#F29F05] overflow-hidden">
+                                <img src="@t.AvatarUrl" alt="Avatar">
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-bold text-white text-sm md:text-base">@t.FullName</h4>
+                                <span class="text-xs text-gray-500">@t.Title</span>
+                            </div>
+                        </div>
+                    </div>
+                    index++;
+                }
+            }
+        }
+    </div>
+    
+    <div class="text-center relative z-20">
+
+
+Created At: 2026-10-08T10:47:30+03:00
+Completed At: 2026-10-08T10:47:33+03:00
+
+The command exited with code 0.
+Output:
+                            <div class="text-4xl md:text-6xl font-black mb-2 drop-shadow-lg">@st.Value</div>
+                            <div class="text-white/80 font-medium uppercase tracking-wider text-sm">@st.TitleTr</div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS (Mï¿½teri Yorumlarï¿½) -->
+<section id="testimonials" class="py-32 bg-darkbg text-white relative overflow-hidden reveal">
+    <div class="max-w-7xl mx-auto px-4 text-center relative z-20 mb-16">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">Mï¿½teri <span class="text-gold">Yorumlarï¿½</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Benimle ï¿½alï¿½anlarï¿½n deneyimleri.</p>
+    </div>
+
+    <!-- 3D Carousel (Eski Javascript ile Uyumlu HTML Yapï¿½sï¿½) -->
+    <div class="relative w-full h-[500px] md:h-[450px] flex items-center justify-center z-10 perspective-[1000px] mb-12">
+        @{
+            var testimonials = ViewBag.Testimonials as IEnumerable<AkuDevs.Models.Testimonial>;
+            if (testimonials != null && testimonials.Any())
+            {
+                int index = 0;
+                foreach (var t in testimonials)
+                {
+                    <div class="testimonial-card absolute w-[300px] md:w-[450px] bg-[#1a1414] rounded-3xl p-8 shadow-2xl transition-all duration-700 ease-out cursor-pointer border border-white/5" data-index="@index">
+                        <div class="text-[#F29F05] mb-4 flex gap-1 justify-center">
+                            @for(int i=0; i<t.Rating; i++){
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            }
+                        </div>
+                        <p class="text-gray-300 font-medium text-base md:text-lg italic mb-6 text-center">"@t.Message"</p>
+                        <div class="flex items-center justify-center gap-4">
+                            <div class="w-12 h-12 rounded-full border-2 border-[#F29F05] overflow-hidden">
+                                <img src="@t.AvatarUrl" alt="Avatar">
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-bold text-white text-sm md:text-base">@t.FullName</h4>
+                                <span class="text-xs text-gray-500">@t.Title</span>
+                            </div>
+                        </div>
+                    </div>
+                    index++;
+                }
+            }
+        }
+    </div>
+    
+    <div class="text-center relative z-20">
+        <button onclick="openCommentModal()" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-ruby text-white font-bold text-lg hover:scale-105 hover:bg-ruby/90 transition-all shadow-[0_0_20px_rgba(214,31,31,0.4)]">
+            Siz de Yorum Yapï¿½n
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+        </button>
+    </div>
+</section>
+
+<!-- YORUM MODALI (Html yapï¿½sï¿½ eski Javascript ile uyumlu) -->
+<div id="commentModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0 invisible transition-all duration-300">
+    <div id="commentModalContent" class="bg-[#1a1414] border border-white/10 w-full max-w-2xl rounded-3xl p-6 md:p-10 transform scale-75 translate-y-10 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] relative shadow-2xl max-h-[90vh] overflow-y-auto">
+        <button onclick="closeCommentModal()" class="absolute top-6 right-6 text-gray-400 hover:text-ruby hover:rotate-90 transition-all">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="text-center mb-8">
+            <h3 class="text-3xl font-black text-white mb-2">Deneyiminizi <span class="text-gold">Paylaï¿½n</span></h3>
+            <p class="text-gray-400">Yorumunuz onaylandï¿½ktan sonra ana sayfada yayï¿½nlanacaktï¿½r.</p>
+        </div>
+        <form id="commentForm" action="/Home/SubmitTestimonial" method="post" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-bold text-gray-300 mb-2">Ad Soyad</label>
+                    <input type="text" name="fullName" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-ruby transition-colors" placeholder="Adï¿½nï¿½z Soyadï¿½nï¿½z">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-300 mb-2">ï¿½nvan / ï¿½irket (Opsiyonel)</label>
+                    <input type="text" name="title" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-ruby transition-colors" placeholder="ï¿½rn: CEO, X ï¿½irketi">
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-300 mb-2">Deï¿½erlendirmeniz</label>
+                <div class="flex items-center gap-2" id="starRatingContainer"></div>
+                <input type="hidden" name="rating" id="selectedRating" value="5">
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-300 mb-4">Bir Avatar Seï¿½in</label>
+                <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x" id="avatarGrid"></div>
+                <input type="hidden" name="avatarUrl" id="avatarUrl">
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-300 mb-2">Mesajï¿½nï¿½z</label>
+                <textarea name="message" required rows="4" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-ruby transition-colors resize-none" placeholder="ï¿½alï¿½malarï¿½m hakkï¿½nda ne dï¿½nï¿½yorsunuz?"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-ruby hover:bg-ruby/90 text-white font-bold text-lg py-4 rounded-xl transition-all shadow-[0_0_15px_rgba(214,31,31,0.4)]">
+                Yorumu Gï¿½nder
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- ï¿½LETï¿½M -->
+
+

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { font-family: 'Inter', sans-serif; }
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #fdfbf7; }
+::-webkit-scrollbar-thumb { background: #b91c1c; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #d61f1f; }
+
+/* Kırmızı gradyan: koyu yakut -> kırmızı -> açık kırmızı */
+.grad-red { background-image: linear-gradient(135deg, #550000 0%, #8f0a0a 30%, #d61f1f 62%, #ff3b30 100%); }
+.grad-red-text {
+  background-image: linear-gradient(90deg, #8f0a0a 0%, #d61f1f 35%, #ff3b30 50%, #d61f1f 65%, #8f0a0a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shine 6s linear infinite;
+}
+@keyframes shine { to { background-position: 200% center; } }
+.btn-glow { box-shadow: 0 0 25px rgba(214,31,31,.45); }
+.btn-glow:hover { box-shadow: 0 0 35px rgba(255,59,48,.65); }
+@media (prefers-reduced-motion: reduce) { .grad-red-text { animation: none; } }
+.hero-red-text {
+  background-image: linear-gradient(90deg, #8f0a0a 0%, #c41818 40%, #e11d1d 50%, #c41818 60%, #8f0a0a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shine 8s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .hero-red-text { animation: none; } }
+
+/* Dil anahtarı: TR | EN segmentli buton */
+.lang-seg { display: inline-flex; padding: 3px; border-radius: 9999px; background: #f1ece4; border: 1px solid #e5ddd0; }
+.lang-seg .lang-opt { flex: 1; padding: 6px 14px; border-radius: 9999px; font-size: .8rem; font-weight: 700; letter-spacing: .05em; color: #6b6259; transition: all .25s ease; }
+.lang-seg .lang-opt:hover { color: #d61f1f; }
+.lang-seg .lang-opt.is-active { color: #fff; background-image: linear-gradient(135deg, #8f0a0a 0%, #d61f1f 100%); box-shadow: 0 2px 8px rgba(214,31,31,.35); }
+
+
+/* Kaydırınca beliren öğeler: yalnızca JS aktifse gizlenir (JS yoksa içerik görünür kalır) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease;
+  transition-delay: var(--d, 0s), var(--d, 0s), 0s, 0s;
+}
+.js .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+@keyframes bg-pan {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.animate-bg-pan {
+    background-size: 200% 200%;
+    animation: bg-pan 8s ease infinite;
+}

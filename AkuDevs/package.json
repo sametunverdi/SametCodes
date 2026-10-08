@@ -1,0 +1,11 @@
+{
+  "name": "akudevs",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./Styles/input.css -o ./wwwroot/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./Styles/input.css -o ./wwwroot/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

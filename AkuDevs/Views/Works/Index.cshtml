@@ -1,0 +1,102 @@
+@model IEnumerable<AkuDevs.Models.Project>
+@{
+    ViewData["Title"] = "İmza İşlerim";
+}
+
+<!-- HERO ALANI -->
+<section class="relative pt-32 pb-20 bg-[#fdfbf7] overflow-hidden">
+    <!-- Dekoratif Arka Plan -->
+    <div class="absolute inset-0 opacity-40">
+        <div class="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-amber-500/10 blur-[100px]"></div>
+        <div class="absolute top-[40%] -left-[10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[100px]"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+        <span class="inline-block mb-4 px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-600 text-sm font-bold uppercase tracking-widest border border-amber-500/20">Portfolyo</span>
+        <h1 class="text-5xl md:text-7xl font-black text-black mb-6 tracking-tight leading-tight">
+            Hayata Geçen <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-primary">Vizyonlar</span>
+        </h1>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg md:text-xl font-medium leading-relaxed">
+            Kurumsal kimliğe değer katan, performansı ve estetiğiyle öne çıkan projelere göz atın.
+        </p>
+    </div>
+</section>
+
+<!-- PROJELER LİSTESİ -->
+<section class="py-20 bg-[#fdfbf7] relative">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            @if(Model != null)
+            {
+                var delayCount = 0;
+                foreach(var proj in Model)
+                {
+                    string delay = delayCount > 0 ? $"style=\"--d:.{(delayCount * 15)}s\"" : "";
+
+                    <article class="reveal group relative flex flex-col rounded-[2rem] bg-white p-4 shadow-sm hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-500 border border-transparent hover:border-amber-100" @Html.Raw(delay)>
+                        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-gray-100 mb-6">
+                            <img src="@proj.ImageUrl" alt="@proj.TitleTr" loading="lazy" 
+                                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                                <a asp-controller="Works" asp-action="Detail" asp-route-id="@proj.Id" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-amber-600 hover:bg-amber-500 hover:text-white transition-colors shadow-lg hover:scale-110">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4 flex flex-col flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="px-3 py-1 bg-amber-50 text-amber-600 text-xs font-bold uppercase tracking-widest rounded-lg" data-i18n-dyn-tr="@proj.CategoryTr" data-i18n-dyn-en="@proj.CategoryEn">@proj.CategoryTr</span>
+                            </div>
+                            <h2 class="text-3xl font-black text-black mb-3 group-hover:text-amber-600 transition-colors" data-i18n-dyn-tr="@proj.TitleTr" data-i18n-dyn-en="@proj.TitleEn">@proj.TitleTr</h2>
+                            <p class="text-gray-600 leading-relaxed mb-6 flex-1" data-i18n-dyn-tr="@proj.DescriptionTr" data-i18n-dyn-en="@proj.DescriptionEn">
+                                @proj.DescriptionTr
+                            </p>
+                        </div>
+                    </article>
+
+                    delayCount++;
+                }
+            }
+
+            <!-- CTA Card -->
+            <article class="reveal group relative flex flex-col justify-center items-center text-center rounded-[2rem] bg-gradient-to-br from-amber-500 to-primary p-12 shadow-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500 overflow-hidden" style="--d:.15s">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_60%)] pointer-events-none"></div>
+                <h2 class="relative z-10 text-4xl font-extrabold text-white mb-6 leading-tight">
+                    Sıradaki Başarı Hikayesi <br/>Sizin Markanız Olsun
+                </h2>
+                <p class="relative z-10 text-white/90 text-lg mb-8 max-w-sm">
+                    Fikrinizi hayata geçirmek için hemen iletişime geçin.
+                </p>
+                <a href="/#contact" class="relative z-10 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:scale-105 transition-transform shadow-lg">
+                    Projeyi Konuşalım
+                </a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const items = document.querySelectorAll('.reveal');
+            if (reduce || !('IntersectionObserver' in window)) {
+                items.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { 
+                        e.target.classList.add('is-visible'); 
+                        io.unobserve(e.target); 
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            items.forEach(el => io.observe(el));
+        });
+    </script>
+}
